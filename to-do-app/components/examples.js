@@ -1,12 +1,12 @@
-import Clock from './clock'
-import Counter from './counter'
+import ToDoList from './ToDoList'
+import AddToDo from './AddToDo'
 
 const Examples = () => {
   return (
     <div style={{ marginBottom: 10 }}>
-      <Clock />
-      
-      <Counter />
+
+      <AddToDo/>
+      <ToDoList />
     </div>
   )
 }
