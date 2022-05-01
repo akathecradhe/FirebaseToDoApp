@@ -9,6 +9,7 @@ const formatTime = (time) => {
 const Clock = () => {
   const lastUpdate = useSelector((state) => state.timer.lastUpdate)
   const light = useSelector((state) => state.timer.light)
+  
   return (
     <div >
       {formatTime(lastUpdate)}
