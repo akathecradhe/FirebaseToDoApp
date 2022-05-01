@@ -1,33 +1,26 @@
 import { combineReducers } from 'redux'
 import * as types from './types'
 
-// COUNTER REDUCER
-const counterReducer = (state = 0, { type }) => {
-  switch (type) {
-    case types.INCREMENT:
-      return state + 1
-    case types.DECREMENT:
-      return state - 1
-    case types.RESET:
-      return 0
-    default:
-      return state
-  }
+// INITIAL Todo STATE
+const initialTodoState = {
+  todos: [],
 }
 
-// INITIAL TIMER STATE
-const initialTimerState = {
-  lastUpdate: 0,
-  light: false,
+//generates ID for each item
+function nextTodoId(todos) {
+  const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1)
+  return maxId + 1
 }
 
-// TIMER REDUCER
-const timerReducer = (state = initialTimerState, { type, payload }) => {
-  switch (type) {
-    case types.TICK:
+// todoREDUCER
+const toDoReducer = (state = initialTodoState, action) => {
+  switch (action.type) {
+    case 'todos/ADD-TO-DO':
       return {
-        lastUpdate: payload.ts,
-        light: !!payload.light,
+        ...state,
+        todos: [...state.todos, 
+          {id: nextTodoId(state.todos),
+          text: action.payload,}]
       }
     default:
       return state
@@ -36,8 +29,7 @@ const timerReducer = (state = initialTimerState, { type, payload }) => {
 
 // COMBINED REDUCERS
 const reducers = {
-  counter: counterReducer,
-  timer: timerReducer,
+  toDo: toDoReducer,
 }
 
 export default combineReducers(reducers)
