@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import Link from 'next/link'
 import { startClock } from '../actions'
 import Examples from '../components/examples'
+import styles from '../styles/Home.module.css'
 
 const Index = () => {
   const dispatch = useDispatch()
