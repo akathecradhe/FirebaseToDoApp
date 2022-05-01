@@ -1,8 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux'
 
 const ToDoList = () => {
+
+  const dispatch= useDispatch()
   const toDos = useSelector((state) => state.toDo.todos)
-  console.log("this is" + JSON.stringify(toDos));
+  const handleClick = (id) => dispatch({
+    type: "todos/REMOVE-TO-DO",
+    payload: id,
+  })
+
+
   if(!toDos || !toDos.length) {
     return <p> You To-Do List is empty</p>
   }
@@ -10,7 +17,12 @@ const ToDoList = () => {
   return(
 
     <ul>
-      {toDos.map(todo => <li key={todo.id} >{todo.text}</li>)}
+      {toDos.map(todo =>
+        
+        <li key={todo.id} >{todo.text} 
+          <button onClick={() => handleClick(todo.id)}>remove</button>
+
+        </li>)}
     </ul>
   )
   
