@@ -5,6 +5,7 @@ const Examples = () => {
   return (
     <div style={{ marginBottom: 10 }}>
       <Clock />
+      
       <Counter />
     </div>
   )
