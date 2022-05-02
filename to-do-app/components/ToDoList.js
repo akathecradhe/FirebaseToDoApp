@@ -1,11 +1,10 @@
 import { useSelector,shallowEqual } from 'react-redux'
 import ListItem from './ListItem.js';
-import React, { useState, useRef} from 'react'
+import React from 'react'
 
 const ToDoList = () => {
 
   const toDos = useSelector((state) => state.toDo.todos)
-
   const toDoIds = useSelector((state) => state.toDo.todos.map(todo => todo.id),shallowEqual )
 
 
