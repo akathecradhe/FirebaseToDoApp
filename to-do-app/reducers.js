@@ -12,6 +12,7 @@ function nextTodoId(todos) {
   return maxId + 1
 }
 
+
 // todoREDUCER
 const toDoReducer = (state = initialTodoState, action) => {
   switch (action.type) {
@@ -19,13 +20,15 @@ const toDoReducer = (state = initialTodoState, action) => {
       return {
         ...state,
         todos: [...state.todos, 
-          {id: nextTodoId(state.todos),
+          {
+            id: nextTodoId(state.todos),
           text: action.payload,}]
       }
     case 'todos/REMOVE-TO-DO':
       return {
         todos: [...state.todos.filter( todo => todo.id !== action.payload )]
-        }  
+        }                                                                
+    
     default:
       return state
   }
