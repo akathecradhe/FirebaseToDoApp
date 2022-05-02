@@ -11,7 +11,6 @@ const AddToDo = () => {
   })
   setTodo('')
 }
-
   return (
     <>
         <input value={todo} type="text"  onChange={e => setTodo(e.target.value)} />
