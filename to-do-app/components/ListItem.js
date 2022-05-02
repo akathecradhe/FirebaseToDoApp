@@ -29,9 +29,14 @@ const ListItem = ({ id }) => {
           <div ></div>
         </div>
           {text}
+          <button onClick >
+            edit
+          </button>
           <button onClick={handleRemove} >
             delete
           </button>
+
+        
         
       </div>
     </li>
