@@ -1,15 +1,7 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import Link from 'next/link'
-import { startClock } from '../actions'
-import Examples from '../components/examples'
-import styles from '../styles/Home.module.css'
 
+import Link from 'next/link'
+import Examples from '../components/examples'
 const Index = () => {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(startClock())
-  }, [dispatch])
 
   return (
     <>

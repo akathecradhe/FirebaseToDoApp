@@ -1,23 +1,7 @@
 import * as types from './types'
+// Adds Todo
+export const AddToDo = () => ({type: 'todos/ADD-TO-DO', payload: todotext})
 
-// INITIALIZES CLOCK ON SERVER
-export const serverRenderClock = () => (dispatch) =>
-  dispatch({
-    type: types.TICK,
-    payload: { light: false, ts: Date.now() },
-  })
+export const RemoveToDo = (id,text) => ({type: 'todos/REMOVE-TO-DO', payload: {id,text} })
 
-// INITIALIZES CLOCK ON CLIENT
-export const startClock = () => (dispatch) =>
-  setInterval(() => {
-    dispatch({ type: types.TICK, payload: { light: true, ts: Date.now() } })
-  }, 1000)
 
-// INCREMENT COUNTER BY 1
-export const incrementCount = () => ({ type: types.INCREMENT })
-
-// DECREMENT COUNTER BY 1
-export const decrementCount = () => ({ type: types.DECREMENT })
-
-// RESET COUNTER
-export const resetCount = () => ({ type: types.RESET })

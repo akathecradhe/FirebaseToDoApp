@@ -1,34 +1,64 @@
 import { combineReducers } from 'redux'
 import * as types from './types'
 
-// COUNTER REDUCER
-const counterReducer = (state = 0, { type }) => {
-  switch (type) {
-    case types.INCREMENT:
-      return state + 1
-    case types.DECREMENT:
-      return state - 1
-    case types.RESET:
-      return 0
-    default:
-      return state
-  }
+// INITIAL Todo STATE
+const initialTodoState = {
+  todos: [],
 }
 
-// INITIAL TIMER STATE
-const initialTimerState = {
-  lastUpdate: 0,
-  light: false,
+//generates ID for each item
+function nextTodoId(todos) {
+  const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1)
+  return maxId + 1
 }
 
-// TIMER REDUCER
-const timerReducer = (state = initialTimerState, { type, payload }) => {
-  switch (type) {
-    case types.TICK:
+
+//Functions to update from Docs https://redux.js.org/usage/structuring-reducers/refactoring-reducer-example
+function updateObject(oldObject, newValues) {
+  // Encapsulate the idea of passing a new object as the first parameter
+  // to Object.assign to ensure we correctly copy data instead of mutating
+  return Object.assign({}, oldObject, newValues)
+}
+
+function updateItemInArray(array, itemId, updateItemCallback) {
+  const updatedItems = array.map(item => {
+    if (item.id !== itemId) {
+      // update one item, preserve all others as they are now
+      return item
+    }
+
+    // Use the provided callback to create an updated item
+    const updatedItem = updateItemCallback(item)
+    return updatedItem
+  })
+ 
+  return updatedItems
+}
+
+
+// todoREDUCER
+const toDoReducer = (state = initialTodoState, action) => {
+  switch (action.type) {
+    case 'todos/ADD-TO-DO':
       return {
-        lastUpdate: payload.ts,
-        light: !!payload.light,
+        ...state,
+        todos: [...state.todos, 
+          {
+            id: nextTodoId(state.todos),
+          text: action.payload,}]
       }
+    case 'todos/REMOVE-TO-DO':
+      return {
+        todos: [...state.todos.filter( todo => todo.id !== action.payload )]
+        }       
+    
+    case 'todos/UPDATE-TO-DO': {
+      const newTodos = updateItemInArray(state.todos, action.payload.id, todo => {
+        return updateObject(todo, { text: action.payload.text })
+      })
+      return updateObject(state, { todos: newTodos })
+    } 
+                                                         
     default:
       return state
   }
@@ -36,8 +66,7 @@ const timerReducer = (state = initialTimerState, { type, payload }) => {
 
 // COMBINED REDUCERS
 const reducers = {
-  counter: counterReducer,
-  timer: timerReducer,
+  toDo: toDoReducer,
 }
 
 export default combineReducers(reducers)
