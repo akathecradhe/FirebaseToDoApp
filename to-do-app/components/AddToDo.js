@@ -5,18 +5,17 @@ const AddToDo = () => {
 
   const dispatch = useDispatch();
   const [todo, setTodo] = useState('');
+  
   const clickHandler = () => { dispatch({
     type:   'todos/ADD-TO-DO',
     payload: todo
   })
   setTodo('')
 }
-
   return (
     <>
-        <input value={todo} type="text"  onChange={e => setTodo(e.target.value)} />
+        <input value={todo} placeholder="Add Task" type="text"  onChange={e => setTodo(e.target.value)} />
         <button onClick={clickHandler}>Add</button>
-
     </>
   )
 }
