@@ -5,6 +5,7 @@ const AddToDo = () => {
 
   const dispatch = useDispatch();
   const [todo, setTodo] = useState('');
+  
   const clickHandler = () => { dispatch({
     type:   'todos/ADD-TO-DO',
     payload: todo

@@ -31,7 +31,7 @@ function updateItemInArray(array, itemId, updateItemCallback) {
     const updatedItem = updateItemCallback(item)
     return updatedItem
   })
-
+ 
   return updatedItems
 }
 
@@ -53,8 +53,8 @@ const toDoReducer = (state = initialTodoState, action) => {
         }       
     
     case 'todos/UPDATE-TO-DO': {
-      const newTodos = updateItemInArray(state.todos, action.id, todo => {
-        return updateObject(todo, { text: action.text })
+      const newTodos = updateItemInArray(state.todos, action.payload.id, todo => {
+        return updateObject(todo, { text: action.payload.text })
       })
       return updateObject(state, { todos: newTodos })
     } 
