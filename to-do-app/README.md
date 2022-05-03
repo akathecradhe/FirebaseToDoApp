@@ -1,5 +1,10 @@
 # To-Do-Application 
 
+Latest Release: https://jovial-marigold-6e1a08.netlify.app/
+
+Github Address: https://github.com/akathecradhe/FirebaseToDoApp
+
+
     ##task
 
     You are to build a simple todo-list React app using redux. This project will require you to build a front-end user interface as you see fit that will allow you to do the following functions:
