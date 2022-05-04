@@ -8,7 +8,6 @@ function App() {
           To Do Application
 
         </h1>
-
         <Layout/>
       </header>
 
