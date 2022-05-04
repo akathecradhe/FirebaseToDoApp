@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
-
+import { firestoreReducer } from 'redux-firestore'
+import {firebaseReducer} from 'react-redux-firebase'
 
 // INITIAL Todo STATE
 const initialTodoState = {
@@ -67,6 +68,8 @@ const toDoReducer = (state = initialTodoState, action) => {
 // COMBINED REDUCERS
 const reducers = {
   toDo: toDoReducer,
+  firebase: firebaseReducer,
+  firestore: firestoreReducer
 }
 
 export default combineReducers(reducers)
