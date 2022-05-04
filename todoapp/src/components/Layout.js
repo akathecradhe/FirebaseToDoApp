@@ -1,14 +1,14 @@
 import ToDoList from './ToDoList'
 import AddToDo from './AddToDo'
 
-const Examples = () => {
+const Layout = () => {
   return (
     <div style={{ marginBottom: 10 }}>
-
       <AddToDo/>
       <ToDoList />
     </div>
   )
 }
 
-export default Examples
+
+export default Layout 

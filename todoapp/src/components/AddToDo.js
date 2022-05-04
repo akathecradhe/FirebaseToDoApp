@@ -14,8 +14,10 @@ const AddToDo = () => {
 }
   return (
     <>
-        <input value={todo} placeholder="Add Task" type="text"  onChange={e => setTodo(e.target.value)} />
-        <button onClick={clickHandler}>Add</button>
+        <input  value={todo} placeholder="Add Task" type="text"  onChange={e => setTodo(e.target.value)} />
+        <button
+        className='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded' 
+        disabled={!todo} onClick={clickHandler}>Add</button>
     </>
   )
 }

@@ -40,14 +40,17 @@ const handleEdit = () => {
         </div>
 
           {edit ? (<>
-                     <input  value={todotext} placeholder={text} type="text"  onChange={e => setTodoText(e.target.value)} />
-                     <button onClick={handleEdit} >Submit</button>  
+                     <input className='shadow appearance-none border-black rounded w-96 py-2 px-3 text-gray-700'
+                      value={todotext} placeholder={text} type="text"  onChange={e => setTodoText(e.target.value)} />
+                     <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'
+                     onClick={handleEdit} >Submit</button>  
                    </>
                 )
             : 
                 (<>
                     {text}
-                    <button onClick={() =>{ setTodoText(text); setEdit(true)}}> Edit</button>
+                    <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+                     onClick={() =>{ setTodoText(text); setEdit(true)}}> Edit</button>
                 </>  
                     
                     
@@ -55,7 +58,8 @@ const handleEdit = () => {
 
           
           
-          <button onClick={handleRemove} >
+          <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
+          onClick={handleRemove} >
             delete
           </button>
 
