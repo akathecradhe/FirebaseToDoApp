@@ -1,11 +1,11 @@
 
 import { useSelector, useDispatch } from 'react-redux'
 import React, { useState } from 'react' ;
+import { removeTodo,updateTodo } from '../redux/actions';
 
 const selectTodoById = (state, todoId) => {
     const listOfTodos = state.toDo.todos 
-    console.log(listOfTodos.find(x => x.id === todoId))
-
+    console.log(listOfTodos.find(todo => todo.id === todoId).id)
     return listOfTodos.find(todo => todo.id === todoId)
   }
 
@@ -17,18 +17,15 @@ const ListItem = ({ id }) => {
   
   const dispatch= useDispatch()
 
-  const handleRemove = () => { 
-    dispatch({
-    type: "todos/REMOVE-TO-DO",
-    payload: id,
-  })}
+  const handleRemove = () => {
+    console.log("deleting "+ todo) 
+    dispatch(removeTodo(todo))
+  }
 
   
 const handleEdit = () => {
-    dispatch({
-    type: "todos/UPDATE-TO-DO",
-    payload: {id, text:todotext}
-  })
+    console.log("Document UPDATE with ID: "+ todo.id, todotext); 
+    dispatch(updateTodo(todo.id,todotext))
   setEdit(false)
 }
   return (

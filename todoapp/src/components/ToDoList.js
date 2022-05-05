@@ -1,22 +1,27 @@
-import { useSelector,shallowEqual } from 'react-redux'
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
 import ListItem from './ListItem.js';
-import React from 'react'
+import { getTodos } from "../redux/actions.js";
 
 const ToDoList = () => {
-  
-  const toDos = useSelector((state) => state.toDo.todos)
   const toDoIds = useSelector((state) => state.toDo.todos.map(todo => todo.id),shallowEqual )
-
+  
   const ListItems = toDoIds.map((todoID) => {
     return <ListItem key={todoID}  id={todoID} />
   })
+
+  const dispatch = useDispatch();
+  useEffect(() => {
   
-  if(!toDos || !toDos.length) {
+      dispatch(getTodos());
+    
+  }, [dispatch]);
+  
+  if(!toDoIds || !toDoIds.length) {
     return <p> You To-Do List is empty</p>
   }
 
-  return(
-    
+  return(   
     <ul>
       {ListItems}
     </ul>

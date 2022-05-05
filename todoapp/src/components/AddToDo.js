@@ -1,16 +1,17 @@
 
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-const AddToDo = () => {
+import { addTodo } from '../redux/actions';
 
+const AddToDo = () => {
+  
   const dispatch = useDispatch();
   const [todo, setTodo] = useState('');
   
-  const clickHandler = () => { dispatch({
-    type:   'todos/ADD-TO-DO',
-    payload: todo
-  })
-  setTodo('')
+  const clickHandler = () => {
+    console.log("adding "+ todo) 
+    dispatch(addTodo(todo))
+    setTodo('')
 }
   return (
     <>
