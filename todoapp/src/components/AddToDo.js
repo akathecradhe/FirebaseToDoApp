@@ -13,12 +13,12 @@ const AddToDo = () => {
     setTodo('')
 }
   return (
-    <>
-        <input  value={todo} placeholder="Add Task" type="text"  onChange={e => setTodo(e.target.value)} />
+    <div className='bg-white p-5 max-w-lg mx-auto rounded-md '>
+        <input className='border-2 rounded-lg w-full h-12 px-4'  value={todo} placeholder="Task Title" type="text"  onChange={e => setTodo(e.target.value)} />
         <button
-        className='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded' 
+        className=' mt-4 bg-purple-500 text-white rounded-md hover:bg-purple-800 font-semibold px-4 py-3 w-full' 
         disabled={!todo} onClick={clickHandler}>Add</button>
-    </>
+    </div>
   )
 }
 
