@@ -15,7 +15,11 @@ Github Address: https://github.com/akathecradhe/FirebaseToDoApp
     -Delete an item from the list
     -Update an existing item
  
-    This project will also be connected to a firebase backend. This will require setting up a firebase project and linking the React frontend to a firestore database. There will be a save button that will save the items in the database. These saved items would then be loaded in from the database when opening the React application. Please upload this to a public github repo that we would be able to view and download from for testing.
+    This project will also be connected to a firebase backend. 
+    This will require setting up a firebase project and linking the React frontend to a firestore database. 
+    There will be a save button that will save the items in the database. 
+    These saved items would then be loaded in from the database when opening the React application.
+    Please upload this to a public github repo that we would be able to view and download from for testing.
 
     
 ## User Stories
