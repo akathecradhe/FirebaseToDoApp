@@ -9,7 +9,6 @@ const AddToDo = () => {
   const [todo, setTodo] = useState('');
   
   const clickHandler = () => {
-    console.log("adding "+ todo) 
     dispatch(addTodo(todo))
     setTodo('')
 }

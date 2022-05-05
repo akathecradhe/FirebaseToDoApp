@@ -29,7 +29,6 @@ export const addTodo =  (todo ) =>  (dispatch) => {
           text: todo
         })
         .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);  
           dispatch(addAction(todo,docRef.id));
         })
         .catch((err) => {
@@ -38,13 +37,11 @@ export const addTodo =  (todo ) =>  (dispatch) => {
         });
     };
 
-export const updateTodo = (todoObj, todo) => (dispatch) => {
-     console.log("Document UPDATE with ID: "+ todoObj, todo);   
+export const updateTodo = (todoObj, todo) => (dispatch) => {  
      db.collection("todolist")
         .doc(todoObj)   
         .update({text: todo})
-        .then(() => {
-            //  console.log("Document UPDATE with ID: "+ todoID, todo);  
+        .then(() => { 
             dispatch(updateAction(todoObj,todo));
         })
         .catch((err) => {

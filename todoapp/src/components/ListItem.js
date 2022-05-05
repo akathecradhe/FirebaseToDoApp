@@ -18,13 +18,11 @@ const ListItem = ({ id }) => {
   const dispatch= useDispatch()
 
   const handleRemove = () => {
-    console.log("deleting "+ todo) 
     dispatch(removeTodo(todo))
   }
 
   
 const handleEdit = () => {
-    console.log("Document UPDATE with ID: "+ todo.id, todotext); 
     dispatch(updateTodo(todo.id,todotext))
   setEdit(false)
 }
