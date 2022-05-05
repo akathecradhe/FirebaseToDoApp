@@ -1,11 +1,9 @@
 
 # To-Do-Application 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Latest Release: https://jovial-marigold-6e1a08.netlify.app/
 
-Github Address: https://github.com/akathecradhe/FirebaseToDoApp
+Production Release: https://jovial-marigold-6e1a08.netlify.app/
 
 
  ## Task
