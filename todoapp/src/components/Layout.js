@@ -3,8 +3,8 @@ import AddToDo from './AddToDo'
 
 const Layout = () => {
   return (
-    <div style={{ marginBottom: 10 }}>
-      <AddToDo/>
+    <div className=''>
+      <AddToDo className=''/>
       <ToDoList />
     </div>
   )

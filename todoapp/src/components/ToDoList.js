@@ -18,7 +18,7 @@ const ToDoList = () => {
   }, [dispatch]);
   
   if(!toDoIds || !toDoIds.length) {
-    return <p> You To-Do List is empty</p>
+    return <p className="mt-5"> You To-Do List is empty</p>
   }
 
   return(   
