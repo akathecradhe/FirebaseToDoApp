@@ -5,7 +5,6 @@ import { removeTodo,updateTodo } from '../redux/actions';
 
 const selectTodoById = (state, todoId) => {
     const listOfTodos = state.toDo.todos 
-    console.log(listOfTodos.find(todo => todo.id === todoId).id)
     return listOfTodos.find(todo => todo.id === todoId)
   }
 
