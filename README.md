@@ -39,7 +39,9 @@ Production Release: https://jovial-marigold-6e1a08.netlify.app/
 
 In the project directory, to run:
 
-### `npm install` in the todoapp directory 
+### `cd /todoapp`
+
+### `npm install`  
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
