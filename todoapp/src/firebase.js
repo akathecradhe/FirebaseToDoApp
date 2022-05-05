@@ -1,5 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import firebase from "firebase/app";
+import "firebase/firestore";
+
 
 
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -30,9 +31,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig)
 
-const db = getFirestore(app);
+const db = firebase.firestore();
+
 
 
 export {db};
