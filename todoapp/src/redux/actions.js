@@ -51,7 +51,6 @@ export const updateTodo = (todoObj, todo) => (dispatch) => {
         };    
 
 export const removeTodo =  (todoObj) =>  (dispatch) => {
-      
     db.collection("todolist")
         .doc(todoObj.id)
         .delete()
