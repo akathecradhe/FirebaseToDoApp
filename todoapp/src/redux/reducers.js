@@ -1,17 +1,9 @@
 import { combineReducers } from 'redux'
 
-
 // INITIAL Todo STATE
 const initialTodoState = {
   todos: [],
 }
-
-//generates ID for each item
-function nextTodoId(todos) {
-  const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1)
-  return maxId + 1
-}
-
 
 //Functions to update from Docs https://redux.js.org/usage/structuring-reducers/refactoring-reducer-example
 function updateObject(oldObject, newValues) {
@@ -35,21 +27,20 @@ function updateItemInArray(array, itemId, updateItemCallback) {
   return updatedItems
 }
 
-
 // todoREDUCER
 const toDoReducer = (state = initialTodoState, action) => {
   switch (action.type) {
+    case 'todos/SET-TODOs':
+      state = { ...state, todos: action.payload };
+      return state;  
     case 'todos/ADD-TO-DO':
       return {
         ...state,
-        todos: [...state.todos, 
-          {
-            id: nextTodoId(state.todos),
-          text: action.payload,}]
+        todos: [...state.todos, action.payload]
       }
     case 'todos/REMOVE-TO-DO':
       return {
-        todos: [...state.todos.filter( todo => todo.id !== action.payload )]
+        todos: [...state.todos.filter( todo => todo.id !== action.payload.id )]
         }       
     
     case 'todos/UPDATE-TO-DO': {
