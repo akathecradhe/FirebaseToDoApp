@@ -6,12 +6,12 @@ import Layout from './components/Layout';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="text-3xl font-bold underline">
+      <div className="App-header">
+        <h1 className="text-3xl font-bold underline mb-8">
           To Do Application
         </h1>
         <Layout/>
-      </header>
+      </div>
 
       
 
